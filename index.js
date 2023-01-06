@@ -8,15 +8,8 @@ document.addEventListener("keypress", function (event){
         }
         else if(event.key==="=")
         {
-            second=document.querySelector("input").value;
-            document.querySelector("input").value= " ";
-            compute(parseFloat(first),parseFloat(second),operation)
-        }
-        else if(event.key==="/" || event.key==="-"|| event.key==="+"|| event.key==="*")
-        {
-            operation=event.key;
-            first=document.querySelector("input").value;
-            document.querySelector("input").value= " ";
+            var ans=eval(document.querySelector("input").value);
+            document.querySelector("input").value=ans;
 
         }
         else{
@@ -25,8 +18,6 @@ document.addEventListener("keypress", function (event){
     
 })
 
-
-var first,second,operation;
 var numofbuttons=document.querySelectorAll(".btn").length
 for (var i=0;i< numofbuttons;i++)
 {
@@ -38,16 +29,9 @@ for (var i=0;i< numofbuttons;i++)
         }
         else if(this.innerHTML==="=")
         {
-            second=document.querySelector("input").value;
-            document.querySelector("input").value= " ";
-            compute(parseFloat(first),parseFloat(second),operation)
-        }
-        else if(this.innerHTML==="/" || this.innerHTML==="-"|| this.innerHTML==="+"|| this.innerHTML==="*")
-        {
-            operation=this.innerHTML;
-            first=document.querySelector("input").value;
-            document.querySelector("input").value= " ";
-
+            var ans=eval(document.querySelector("input").value);
+            document.querySelector("input").value=ans;
+            
         }
         else{
             document.querySelector("input").value+=this.innerHTML;
@@ -56,23 +40,4 @@ for (var i=0;i< numofbuttons;i++)
     
     }
     );
-}
-function compute(f,s,o){
-    var ans;
-    if(o==="/"){
-       ans=f/s;
-       document.querySelector("input").value=ans;
-    }else if (o==="-"){
-        ans=f-s;
-        document.querySelector("input").value=ans;
-     }
-     else if (o==="+"){
-        ans=f+s;
-        document.querySelector("input").value=ans;
-     }
-     else if (o==="*"){
-        ans=f*s;
-        document.querySelector("input").value=ans;
-     }
-
 }
