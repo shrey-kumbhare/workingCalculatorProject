@@ -1,4 +1,30 @@
-// alert("welcome")alert("welcome")
+alert("welcome")
+
+document.addEventListener("keypress", function (event){
+
+    if(event.key==="C")
+        {
+            document.querySelector("input").value= " ";
+        }
+        else if(event.key==="=")
+        {
+            second=document.querySelector("input").value;
+            document.querySelector("input").value= " ";
+            compute(parseFloat(first),parseFloat(second),operation)
+        }
+        else if(event.key==="/" || event.key==="-"|| event.key==="+"|| event.key==="*")
+        {
+            operation=event.key;
+            first=document.querySelector("input").value;
+            document.querySelector("input").value= " ";
+
+        }
+        else{
+            document.querySelector("input").value+=event.key;
+        }
+    
+})
+
 
 var first,second,operation;
 var numofbuttons=document.querySelectorAll(".btn").length
